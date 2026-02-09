@@ -4,6 +4,7 @@ from django.conf import settings
 from django.shortcuts import redirect
 from django.contrib import messages
 from .models import Skill, SoftSkill
+from django.core.mail import send_mail
 
 from .models import (
     Profile,
@@ -128,11 +129,24 @@ def project_detail(request, pk):
 # CONTACT FORM
 def contact(request):
     if request.method == 'POST':
+        name=request.POST.get('name'),
+        email=request.POST.get('email'),
+        message=request.POST.get('message')
         ContactMessage.objects.create(
-            name=request.POST.get('name'),
-            email=request.POST.get('email'),
-            message=request.POST.get('message')
+            name=name,
+            email=email,
+            message=message 
         )
+
+        full_message = f"Message from {name} ({email}):\n\n{message}"
+
+        send_mail(
+            subject=f"New Contact Form Submission from {name}",
+            message=full_message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[settings.CONTACT_EMAIL],  
+        )
+
 
         messages.success(request, "Message sent successfully!")
         return redirect('home')

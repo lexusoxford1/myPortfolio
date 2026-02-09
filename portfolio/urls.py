@@ -36,7 +36,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='home'),                        # Home page
+    path('', views.home, name='home'),                       
     path('project/<int:pk>/', views.project_detail, name='project_detail'),
     path('contact/', views.contact, name='contact'),
     path('hire/', views.hire_me_submit, name='hire_me_submit'), 
