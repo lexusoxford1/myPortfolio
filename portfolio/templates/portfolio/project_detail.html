@@ -1,0 +1,21 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+<section class="min-h-screen flex items-center justify-center px-6">
+    <div class="max-w-3xl bg-white/10 p-10 rounded-2xl backdrop-blur">
+        <h1 class="text-3xl font-bold mb-4">{{ project.title }}</h1>
+
+        <p class="text-gray-300 mb-4">
+            {{ project.description }}
+        </p>
+
+        <p class="text-sm text-blue-400">
+            Technologies: {{ project.technologies }}
+        </p>
+
+        <a href="{% url 'home' %}" class="inline-block mt-8 text-blue-300 hover:underline">
+            ← Back to Home
+        </a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ profile.full_name }} | Portfolio</title>
+
+   <!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+
+<!-- AOS animation -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({ duration: 1000, once: true });
+</script>
+
+<!-- Font Awesome (for optional icons if no local image) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body class="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white">
+
+
+<!-- Navbar -->
+<nav class="fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+
+        <!-- Glowing Name Title -->
+        <h1 class="text-2xl font-extrabold tracking-wide 
+                   text-white
+                   drop-shadow-[0_0_12px_rgba(59,130,246,0.7)]
+                   hover:drop-shadow-[0_0_18px_rgba(59,130,246,0.9)]
+                   transition">
+             {{ profile.full_name|default:"KIT" }}
+        </h1>
+
+        <!-- Navigation Box -->
+        <div class="bg-black/60 backdrop-blur-md rounded-full px-8 py-3 
+                    flex items-center space-x-6 shadow-lg">
+
+            <a href="#about" class="text-sm hover:text-blue-400 transition">About</a>
+            <a href="#skills" class="text-sm hover:text-blue-400 transition">Skills</a>
+            <a href="#projects" class="text-sm hover:text-blue-400 transition">Projects</a>
+            <a href="#contact" class="text-sm hover:text-blue-400 transition">Contact</a>
+
+            <div class="flex gap-4 justify-center">
+            <a href="{{ MEDIA_URL }}/media/resumes/KeithPelonio_Resume.pdf
+"
+                target="_blank"
+                class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full font-semibold transition shadow-lg">
+                View Resume
+            </a>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+</nav>
+
+
+
+    {% block content %}{% endblock %}
+
+
+    <!-- JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="{% static 'portfolio/js/main.js' %}"></script>
+    <script src="{% static 'portfolio/js/view-project.js' %}"></script>
+    <script src="{% static 'portfolio/js/scroll-animation.js' %}"></script>
+    <script src="{% static 'portfolio/js/id-laceAnimation.js' %}"></script>
+    <script src="{% static 'portfolio/js/skills.js' %}"></script>
+    <script src="{% static 'portfolio/js/imageSetup.js' %}"></script>
+    <script src="{% static 'portfolio/js/circle-animation.js' %}"></script>
+    <!--download Resume-->
+    <script>
+        document.getElementById("hireForm").addEventListener("submit", function (e) {
+            setTimeout(() => {
+                // OPEN resume for viewing
+                window.open(
+                    "/media/resumes/KeithPelonio_Resume.pdf",
+                    "_blank"
+                );
+            }, 500);
+        });
+
+
+        </script>
+
+  
+    
+
+</body>
+</html>

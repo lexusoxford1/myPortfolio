@@ -1,0 +1,296 @@
+.glow-text {
+    text-shadow: 0 0 20px #3b82f6;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    border-left: 5px solid #3b82f6;
+    padding-left: 1rem;
+}
+
+.glass-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    transition: all 0.4s ease;
+}
+
+.glass-card:hover {
+    box-shadow: 0 0 40px rgba(59,130,246,0.4);
+}
+
+.input-field {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: white;
+}
+
+.input-field:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.btn-primary {
+    padding: 1rem 3rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+.btn-primary:active {
+    transform: scale(0.95);
+}
+
+#hireNav {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+#hireNav:hover {
+    color: #60a5fa; /* Tailwind blue-400 */
+    transform: scale(1.1);
+    text-shadow: 0 0 10px #60a5fa;
+}
+
+body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f0f0f0;}
+nav { background:#333; padding:10px;}
+nav a { color:#fff; margin:0 10px; text-decoration:none; cursor:pointer;}
+.hero { text-align:center; padding:100px 0;}
+.modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);}
+.modal-content { background:#fff; margin:10% auto; padding:20px; width:300px; border-radius:10px; position:relative;}
+.close { position:absolute; top:10px; right:15px; font-size:20px; cursor:pointer;}
+input { display:block; width:100%; margin:10px 0; padding:10px;}
+button { padding:10px 20px; background:#333; color:#fff; border:none; cursor:pointer; }
+button:hover { background:#555; }
+/* typing animation */
+
+
+
+/* Big modern circle */
+.modern-circle {
+  position: absolute;
+  top: 50%;
+  right: -50px; /* adjust para nasa likod ng card */
+  transform: translateY(-50%);
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(59,130,246,0.3) 0%, rgba(59,130,246,0) 70%);
+  z-index: 0; /* siguradong nasa likod ng card */
+  pointer-events: none;
+}
+
+/* Optional: Glow sa KP para lumabas sa video/blur */
+.kp-circle {
+  box-shadow: 0 0 15px rgba(59,130,246,0.7);
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center; 
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #111;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 350px;
+    max-width: 90%;
+    position: relative;
+}
+
+/* Skills section card hover */
+.skill-card:hover {
+    background-color: rgba(59, 130, 246, 0.2);
+    border-radius: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+/* Info panel box */
+#skillInfoPanel {
+    background-color: rgba(59, 130, 246, 0.2);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+#skillInfoPanel {
+    max-height: 8rem; /* adjustable kung mahaba ang description */
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+/* Skill level bar container */
+.skill-bar-container {
+  width: 100%;
+  background: rgba(255,255,255,0.05); /* match sa glassy card */
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  height: 14px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Animated bar */
+.skill-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 12px;
+  transition: width 1s ease-in-out;
+}
+
+.skill-bar {
+    margin-top: 0.5rem;
+    width: 100%;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 0.5rem;
+    height: 1rem;
+    overflow: hidden;
+}
+
+.skill-bar .bar {
+    height: 100%;
+    background-color: #3b82f6; /* Tailwind: blue-500 */
+    width: 0%; /* default, dynamic sa style attr */
+    transition: width 1s ease-in-out;
+}
+
+
+/* Optional: glow effect when animating */
+.skill-bar.animate {
+  box-shadow: 0 0 10px rgba(59,130,246,0.5);
+}
+
+
+
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn { animation: fadeIn 1s forwards; }
+.animate-fadeIn.delay-200 { animation-delay: 0.2s; }
+.animate-fadeIn.delay-400 { animation-delay: 0.4s; }
+.animate-fadeIn.delay-500 { animation-delay: 0.5s; }
+.animate-fadeIn.delay-600 { animation-delay: 0.6s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+#loaderBar {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.7);
+    transition: width 0.2s ease;
+}
+ /* Scroll Indicator */
+#scrollIndicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px; /* mas visible kaysa 2px kung gusto mo mas makapal */
+    width: 0%;
+    background: linear-gradient(to right, #3B82F6, #8B5CF6, #0EA5E9);
+    box-shadow: 0 0 10px #3B82F6, 0 0 20px #8B5CF6, 0 0 30px #0EA5E9;
+    transition: width 0.3s ease-out;
+    z-index: 9999;
+}
+
+#scrollIndicator.active-glow {
+    box-shadow: 0 0 20px #3B82F6, 0 0 40px #8B5CF6, 0 0 60px #0EA5E9;
+}
+
+/* timeline*/
+
+.timeline-img{
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.timeline-img:hover{
+  transform: scale(1.05);
+}
+.timeline-title{
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+.timeline-desc{
+  margin-top: 0.75rem;
+  color: #9ca3af;
+}
+.timeline-date{
+  color: #60a5fa;
+  font-size: 0.875rem;
+}
+
+/* Id lace animation */
+@keyframes idleSwing {
+    0%   { transform: translateY(0) rotate(0deg); }
+    25%  { transform: translateY(0) rotate(1.2deg); }
+    50%  { transform: translateY(0) rotate(0deg); }
+    75%  { transform: translateY(0) rotate(-1.2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+#idCard.idle {
+    animation: idleSwing 4s ease-in-out infinite;
+    transform-origin: top center;
+}
+
+/* timeline animation */
+/* Timeline line connecting dots */
+.timeline-item {
+  position: relative;
+}
+
+/* Add vertical line from dot to next dot */
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 100%;
+  background-color: #3b82f6; /* same as bg-blue-500 */
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* Hide line for last item */
+.timeline-item:last-child::after {
+  display: none;
+}
+
+/* Make sure dot is on top of the line */
+.timeline-circle {
+  z-index: 10;
+  position: relative;
+}

@@ -1,0 +1,30 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+<section class="min-h-screen flex items-center justify-center px-6">
+    <div class="max-w-xl w-full bg-white/10 p-10 rounded-2xl backdrop-blur">
+        <h1 class="text-3xl font-bold mb-6 text-center">Contact Me</h1>
+
+        <form method="POST" class="space-y-5">
+            {% csrf_token %}
+
+            <input type="text" name="name" placeholder="Your Name"
+                   class="w-full p-3 rounded bg-white/10 text-white" required>
+
+            <input type="email" name="email" placeholder="Your Email"
+                   class="w-full p-3 rounded bg-white/10 text-white" required>
+
+            <textarea name="message" rows="5" placeholder="Your Message"
+                      class="w-full p-3 rounded bg-white/10 text-white"></textarea>
+
+            <button class="w-full py-3 bg-blue-600 rounded font-bold hover:bg-blue-700">
+                Send Message
+            </button>
+        </form>
+
+        <a href="{% url 'home' %}" class="block mt-6 text-center text-blue-300 hover:underline">
+            ← Back to Home
+        </a>
+    </div>
+</section>
+{% endblock %}

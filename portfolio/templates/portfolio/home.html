@@ -1,0 +1,1067 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!--Main content-->
+<div id="mainContent" class="">
+
+    <!-- HERO -->
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center px-6 text-white overflow-hidden">
+
+            <!-- VIDEO BACKGROUND -->
+            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+                <source src="{% static 'videos/hero-bg.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <!-- DARK OVERLAY -->
+            <div class="absolute inset-0 bg-black/60 z-10"></div>
+
+            <!-- CIRCLE ANIMATION LAYER -->
+            <div class="absolute inset-0 z-15 pointer-events-none">
+                <canvas id="circleCanvas" class="w-full h-full"></canvas>
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <div class="relative z-20 max-w-7xl w-full flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+
+            <!-- LEFT CONTENT -->
+  <!-- LEFT CONTENT -->
+<div class="flex-1 text-center md:text-left space-y-6" data-aos="fade-right" data-aos-duration="1200">
+
+    <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight drop-shadow-[0_0_20px_rgba(59,130,246,0.8)] glow-text animate-fadeIn">
+        Hi, I'm <span class="text-blue-400">Keith Pelonio</span>
+    </h1>
+
+    <p class="text-lg md:text-xl text-gray-300 animate-fadeIn delay-200">
+        Computer Science Student | IT Support | Web Developer
+    </p>
+
+    <!-- GLASS-STYLE BOX AS GRID ITEM (UX ALIGNED) -->
+    <div class="grid grid-cols-1 md:grid-cols-1 gap-6 animate-fadeIn delay-400">
+
+        <div class="bg-gray-800/70 backdrop-blur-md rounded-2xl p-6 shadow-lg hover:shadow-2xl transition transform hover:scale-105">
+            <p class="text-gray-200 leading-relaxed">
+                A motivated Computer Science student seeking a Job Training opportunity
+                in Technical Support or IT Support, where I can apply and further develop my
+                technical and analytical skills.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 mt-4 justify-center md:justify-start">
+                <a href="#contact" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full font-semibold transition shadow-lg">
+                    Contact Me
+                </a>
+                <a href="/media/resumes/KeithPelonio_Resume.pdf" download class="bg-transparent border border-blue-400 hover:bg-blue-400 hover:text-black text-white px-6 py-3 rounded-full font-semibold transition">
+                    Download Resume
+                </a>
+            </div>
+        </div>
+
+        <!-- PROGRAMMING LANGUAGES SECTION -->
+        <div class="mt-6">
+            <h3 class="text-2xl font-semibold text-white mb-6 text-center md:text-left">
+                Programming Languages I Know
+            </h3>
+
+            <div class="flex flex-wrap justify-center md:justify-start gap-6">
+
+                <!-- C# -->
+                <div class="flex flex-col items-center bg-gray-800/70 backdrop-blur-md px-5 py-3 rounded-2xl shadow-lg transform transition hover:scale-110 hover:shadow-2xl duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/csharp.svg" 
+                         alt="C#" class="w-12 h-12 mb-2 filter invert">
+                    <span class="text-white font-medium">C#</span>
+                </div>
+
+                <!-- PHP -->
+                <div class="flex flex-col items-center bg-gray-800/70 backdrop-blur-md px-5 py-3 rounded-2xl shadow-lg transform transition hover:scale-110 hover:shadow-2xl duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/php.svg" 
+                         alt="PHP" class="w-12 h-12 mb-2 filter invert">
+                    <span class="text-white font-medium">PHP</span>
+                </div>
+
+                <!-- Laravel -->
+                <div class="flex flex-col items-center bg-gray-800/70 backdrop-blur-md px-5 py-3 rounded-2xl shadow-lg transform transition hover:scale-110 hover:shadow-2xl duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/laravel.svg" 
+                         alt="Laravel" class="w-12 h-12 mb-2 filter invert">
+                    <span class="text-white font-medium">Laravel</span>
+                </div>
+
+                <!-- MySQL -->
+                <div class="flex flex-col items-center bg-gray-800/70 backdrop-blur-md px-5 py-3 rounded-2xl shadow-lg transform transition hover:scale-110 hover:shadow-2xl duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/mysql.svg" 
+                         alt="MySQL" class="w-12 h-12 mb-2 filter invert">
+                    <span class="text-white font-medium">MySQL</span>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- RIGHT CARD / IMAGE WRAPPER -->
+<div class="flex-1 flex justify-center md:justify-end relative">
+
+    <!-- WRAPPER PARA SA PROFILE CARD + ICONS -->
+    <div class="relative flex flex-col items-center">
+
+        <!-- SIDE FLOATING 4+ PROJECTS TITLE -->
+       <!-- FLOATING 4+ PROJECTS TITLE -->
+        <div class="absolute -top-6 left-1  transform -translate-x-1/2 bg-blue-500/80 text-white font-semibold px-4 py-2 rounded-full shadow-lg animate-bounce">
+            4+ Projects
+        </div>
+
+        <!-- Profile Card -->
+        <div class="relative bg-black/70 backdrop-blur-xl rounded-3xl p-6 flex flex-col items-center gap-4 shadow-xl z-20">
+
+            <!-- PROFILE IMAGE -->
+            <img src="{% static 'images/profile.jpg' %}" alt="Keith Pelonio" class="w-40 h-40 rounded-full object-cover ring-4 ring-blue-400/50">
+
+            <!-- NAME -->
+            <h3 class="text-2xl font-bold text-white">Keith Pelonio</h3>
+
+            <!-- USERNAME -->
+            <div class="flex items-center gap-2 mt-1">
+                <div class="relative w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-violet-500 flex items-center justify-center text-xs font-bold text-white kp-circle z-20">
+                    KP
+                </div>
+                <span class="text-gray-400 text-sm">@kjp.amore</span>
+            </div>
+
+            <!-- CONTACT BUTTON -->
+            <a href="#contact" class="mt-4 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white px-6 py-3 rounded-full font-semibold transition shadow-lg">
+                Contact Me
+            </a>
+
+            <!-- SOCIAL MEDIA BUTTONS -->
+          <div class="flex gap-4 mt-4">
+                <!-- Gmail -->
+                <a href="mailto:keithpelono111@gmail.com" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-red-600 hover:bg-red-700 transition shadow-md">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail" class="w-5 h-5 filter invert">
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/keith-pelonio-384503396" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 hover:bg-blue-800 transition shadow-md">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="w-5 h-5 filter invert">
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/lexusoxford1" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-900 transition shadow-md">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" class="w-5 h-5 filter invert">
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+        </div>
+        <!-- SCROLL INDICATOR -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-50">
+            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+        </div>
+
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- GLOBAL VIDEO BACKGROUND -->
+     <section class="relative text-white overflow-hidden">
+
+        <!-- VIDEO -->
+        <video autoplay muted loop playsinline
+            class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="{% static 'videos/background.mp4' %}" type="video/mp4">
+        </video>
+
+        <!-- OVERLAY -->
+        <div class="absolute inset-0 bg-black/70 z-10"></div>
+        
+        <!-- OVERLAY WITH BLUR -->
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm z-10"></div>
+
+        <!-- CONTENT WRAPPER -->
+        <div class="relative z-20">
+
+
+
+
+
+ <!-- ABOUT -->
+<section id="about" class="relative min-h-screen flex items-center justify-center px-6 bg-black overflow-hidden">
+
+    <div class="relative z-20 max-w-7xl w-full grid md:grid-cols-2 gap-20 items-center">
+
+        <!-- LEFT : ID LACE + CARD -->
+        <div class="flex justify-center md:justify-start" data-aos="fade-right">
+    <div id="laceArea" class="relative cursor-grab select-none">
+
+        <!-- Lace -->
+        <div id="lace" class="absolute -top-36 left-1/2 -translate-x-1/2 w-[3px] h-36 
+                    bg-gradient-to-b from-gray-300/70 to-transparent rounded-full origin-top"></div>
+
+        <!-- Glow -->
+        <div class="absolute -inset-1 rounded-2xl blur-2xl 
+                    bg-gradient-to-r from-blue-500 via-sky-400 to-violet-500 opacity-60"></div>
+
+        <!-- ID Card -->
+        <div id="idCard" class="relative w-72 bg-black/70 backdrop-blur-xl rounded-2xl 
+                    p-6 shadow-xl border border-white/10">
+
+            <div class="flex flex-col items-center gap-4">
+                <img src="{% static 'images/profile.jpg' %}" 
+                     alt="Profile"
+                     class="w-32 h-32 rounded-xl object-cover ring-4 ring-blue-400/40">
+
+                <h3 class="text-xl font-semibold text-white">Keith Pelonio</h3>
+                <p class="text-sm text-gray-400">IT Support / CS Student</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+        <!-- RIGHT : ABOUT CONTENT -->
+        <div data-aos="fade-left">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">
+                About <span class="text-blue-400">Me</span>
+            </h2>
+
+            <p class="text-gray-400 italic mb-6">
+                Building logic with purpose and design with clarity.
+            </p>
+
+            <p class="text-gray-300 text-lg leading-relaxed mb-12">
+               A motivated Computer Science student actively seeking opportunities in Web Development or Back-End Programming. 
+               Skilled in building responsive web applications, managing databases, and implementing efficient server-side logic. 
+               Strong foundation in troubleshooting, system support, and programming concepts, with hands-on academic projects and practical experience in creating real-world solutions. 
+               Eager to contribute to a dynamic team and grow in a professional IT environment.
+            </p>
+
+            <!-- TITLE COUNTERS ONLY (LIKE TEMPLATE) -->
+            <div class="flex gap-12">
+
+                <div>
+                    <h3 class="text-4xl font-extrabold text-blue-400 counter" data-target="2">0</h3>
+                    <p class="text-xs tracking-widest text-gray-500 mt-1">
+                        YEARS EXPERIENCE
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-4xl font-extrabold text-blue-400 counter" data-target="4">0</h3>
+                    <p class="text-xs tracking-widest text-gray-500 mt-1">
+                        PROJECTS COMPLETED
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-4xl font-extrabold text-blue-400 counter" data-target="6">0</h3>
+                    <p class="text-xs tracking-widest text-gray-500 mt-1">
+                        PROGRAMMING LANGUAGES
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<section id="skills" class="relative py-28 text-white overflow-hidden">
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+
+    <!-- Title -->
+    <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-8" data-aos="fade-up">
+      <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+        Technical Stocks
+      </span>
+    </h2>
+
+    <!-- Category Buttons -->
+    <div class="flex flex-wrap justify-center gap-4 mb-8">
+      <button class="category-btn px-4 py-2 rounded-full bg-blue-500/20 text-blue-300 hover:bg-blue-500 hover:text-white transition" data-category="All">
+        <img src="https://img.icons8.com/?size=100&id=ftfb8qrzjvH8&format=png&color=000000" class="w-5 h-5 inline-block mr-1"> All
+      </button>
+      <button class="category-btn px-4 py-2 rounded-full bg-blue-500/20 text-blue-300 hover:bg-blue-500 hover:text-white transition" data-category="Back-end Programming">
+        <img src="https://img.icons8.com/?size=100&id=l0UsZRTvcGel&format=png&color=000000" class="w-5 h-5 inline-block mr-1"> Back-end
+      </button>
+      <button class="category-btn px-4 py-2 rounded-full bg-blue-500/20 text-blue-300 hover:bg-blue-500 hover:text-white transition" data-category="Database">
+        <img src="https://img.icons8.com/?size=100&id=laYYF3dV0Iew&format=png&color=000000" class="w-5 h-5 inline-block mr-1"> Database
+      </button>
+      <button class="category-btn px-4 py-2 rounded-full bg-blue-500/20 text-blue-300 hover:bg-blue-500 hover:text-white transition" data-category="Application Development">
+        <img src="https://img.icons8.com/?size=100&id=RCBcI3eY5NOM&format=png&color=000000" class="w-5 h-5 inline-block mr-1"> App Dev
+      </button>
+      <button class="category-btn px-4 py-2 rounded-full bg-blue-500/20 text-blue-300 hover:bg-blue-500 hover:text-white transition" data-category="Web Development">
+        <img src="https://img.icons8.com/?size=100&id=4WoeuQ2NYN4B&format=png&color=000000" class="w-5 h-5 inline-block mr-1"> Web Dev
+      </button>
+      <button class="category-btn px-4 py-2 rounded-full bg-blue-500/20 text-blue-300 hover:bg-blue-500 hover:text-white transition" data-category="Other Field">
+        <img src="https://img.icons8.com/?size=100&id=tGFliXQWsAP5&format=png&color=000000" class="w-5 h-5 inline-block mr-1"> Other
+      </button>
+    </div>
+
+    <!-- Glass Container -->
+    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl">
+
+      <!-- Scrollable Grid -->
+      <div class="max-h-[420px] overflow-y-auto pr-2 custom-scrollbar">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+
+          {% for skill in skills %}
+          <div class="skill-card group cursor-pointer bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col items-center justify-start transition-all duration-300 hover:bg-blue-500/10 hover:border-blue-400/40"
+               data-title="{{ skill.name }}"
+               data-description="Experienced with {{ skill.name }} and continuously improving through projects."
+               data-category="{{ skill.category }}">
+            <!-- Skill Icon -->
+            <img src="{{ skill.icon_url }}" class="w-12 h-12 mb-3 group-hover:scale-110 transition">
+            <!-- Skill Name -->
+            <span class="text-sm text-gray-300 mb-1 group-hover:text-blue-300">{{ skill.name }}</span>
+            <!-- Skill Level + Percent -->
+            <span class="text-xs text-gray-400 mb-1">{{ skill.level }} ({{ skill.percent }}%)</span>
+            <!-- Skill Progress Bar -->
+            <div class="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+              <div class="bg-blue-500 h-2 rounded-full transition-all duration-1000" style="width: {{ skill.percent }}%"></div>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+
+      <!-- Info Panel -->
+      <div id="skillInfoPanel" class="mt-8 p-6 rounded-2xl bg-black/40 border border-white/10 hidden">
+        <h3 id="skillTitle" class="text-xl font-bold"></h3>
+        <p id="skillDescription" class="text-sm text-gray-300 mt-2"></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!--Coursework-->
+<section id="coursework" class="py-32 bg-gray-900 text-white relative">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- LARGE OUTER BOX CONTAINER -->
+    <div class="bg-gray-800/50 border border-blue-500 rounded-3xl p-12 relative">
+
+      <!-- TITLE -->
+      <div class="text-center mb-20" data-aos="fade-up">
+        <h2 class="text-4xl font-bold">
+          <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            Coursework Timeline
+          </span>
+        </h2>
+        <p class="text-gray-400 mt-2">2022 – 2025 Academic Journey</p>
+      </div>  
+
+      <!-- CENTER LINE -->
+      <div class="absolute left-1/2 top-50 transform -translate-x-1/2 w-1 bg-blue-500" style="height: calc(86% - 4rem);"></div>
+
+      <!-- TIMELINE BOX CONTAINER -->
+      <div id="timelineContainer" class="relative bg-gray-800/50 border border-blue-500 rounded-2xl p-10">
+
+        <!-- ===== TIMELINE ITEMS ===== -->
+
+        <!-- 2022 -->
+        <div class="timeline-item flex items-center mb-24 w-full relative">
+          <div class="timeline-circle absolute left-1/2 top-0 transform -translate-x-1/2 w-6 h-6 bg-blue-500 rounded-full border-2 border-white"></div>
+          <div class="timeline-image w-1/2 flex justify-end pr-6" data-aos="fade-right">
+            <div class="bg-gray-700 p-4 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+              <img src="{% static 'images/project4.png' %}" nclick="openImageModal(this.src)"
+                    class="rounded-xl w-full h-48 object-contain bg-gray-800 cursor-pointer hover:opacity-90 transition">
+            </div>
+          </div>
+          <div class="timeline-content w-1/2 pl-6" data-aos="fade-left">
+            <div class="flex items-center space-x-4">
+              <h4 class="timeline-title text-xl font-semibold">System Project</h4>
+              <span class="timeline-date text-gray-400 text-sm">September 2022</span>
+            </div>
+            <p class="timeline-desc mt-2">Development of a functional system showcasing problem-solving and integration of basic technologies.</p>
+          </div>
+        </div>
+
+        <!-- 2023 -->
+        <div class="timeline-item flex items-center mb-24 w-full relative">
+          <div class="timeline-circle absolute left-1/2 top-0 transform -translate-x-1/2 w-6 h-6 bg-blue-500 rounded-full border-2 border-white"></div>
+          <div class="timeline-image w-1/2 flex justify-end pr-6" data-aos="fade-right">
+            <div class="bg-gray-700 p-4 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+              <img src="{% static 'images/project2.png' %}" nclick="openImageModal(this.src)"
+                    class="rounded-xl w-full h-48 object-contain bg-gray-800 cursor-pointer hover:opacity-90 transition">
+            </div>
+          </div>
+          <div class="timeline-content w-1/2 pl-6" data-aos="fade-left">
+            <div class="flex items-center space-x-4">
+              <h4 class="timeline-title text-xl font-semibold">Web Project</h4>
+              <span class="timeline-date text-gray-400 text-sm">September 2023</span>
+            </div>
+            <p class="timeline-desc mt-2">Design and implementation of a dynamic website with interactive features and responsive layout.</p>
+          </div>
+        </div>
+
+        <!-- 2025 -->
+        <div class="timeline-item flex items-center mb-24 w-full relative">
+          <div class="timeline-circle absolute left-1/2 top-0 transform -translate-x-1/2 w-6 h-6 bg-blue-500 rounded-full border-2 border-white"></div>
+          <div class="timeline-image w-1/2 flex justify-end pr-6" data-aos="fade-right">
+            <div class="bg-gray-700 p-4 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+              <img src="{% static 'images/thesis-project.png' %}" nclick="openImageModal(this.src)"
+                    class="rounded-xl w-full h-48 object-contain bg-gray-800 cursor-pointer hover:opacity-90 transition">
+            </div>
+          </div>
+          <div class="timeline-content w-1/2 pl-6" data-aos="fade-left">
+            <div class="flex items-center space-x-4">
+              <h4 class="timeline-title text-xl font-semibold">Thesis Project</h4>
+              <span class="timeline-date text-gray-400 text-sm">September 2025</span>
+            </div>
+            <p class="timeline-desc mt-2">Capstone research project integrating academic knowledge into a comprehensive solution.</p>
+          </div>
+        </div>
+
+        <!-- 2025 November -->
+        <div class="timeline-item flex items-center mb-24 w-full relative">
+          <div class="timeline-circle absolute left-1/2 top-0 transform -translate-x-1/2 w-6 h-6 bg-blue-500 rounded-full border-2 border-white"></div>
+          <div class="timeline-image w-1/2 flex justify-end pr-6" data-aos="fade-right">
+            <div class="bg-gray-700 p-4 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+              <img src="{% static 'images/project3.png' %}" nclick="openImageModal(this.src)"
+                    class="rounded-xl w-full h-48 object-contain bg-gray-800 cursor-pointer hover:opacity-90 transition">
+            </div>
+          </div>
+          <div class="timeline-content w-1/2 pl-6" data-aos="fade-left" data-aos-delay="100">
+            <div class="flex items-center space-x-4">
+              <h4 class="timeline-title text-xl font-semibold">Android Project</h4>
+              <span class="timeline-date text-gray-400 text-sm">November 2025</span>
+            </div>
+            <p class="timeline-desc mt-2">Creation of a mobile application demonstrating user interaction, functionality, and design principles.</p>
+          </div>
+        </div>
+
+        <!-- STI Code Cluster -->
+        <div class="timeline-item flex items-center mb-24 w-full relative">
+          <div class="timeline-circle absolute left-1/2 top-0 transform -translate-x-1/2 w-6 h-6 bg-blue-500 rounded-full border-2 border-white"></div>
+          <div class="timeline-image w-1/2 flex justify-end pr-6" data-aos="fade-right">
+            <div class="bg-gray-700 p-4 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+              <img src="{% static 'images/codefest.jpg' %}" nclick="openImageModal(this.src)"
+                    class="rounded-xl w-full h-48 object-contain bg-gray-800 cursor-pointer hover:opacity-90 transition">
+            </div>
+          </div>
+          <div class="timeline-content w-1/2 pl-6" data-aos="fade-left" data-aos-delay="200">
+            <div class="flex items-center space-x-4">
+              <h4 class="timeline-title text-xl font-semibold">STI Code Cluster</h4>
+              <span class="timeline-date text-gray-400 text-sm">March 2025</span>
+            </div>
+            <p class="timeline-desc mt-2">Participation in coding competition showcasing algorithmic skills and problem-solving under time constraints.</p>
+          </div>
+        </div>
+
+        <!-- AI Ready ASEAN -->
+        <div class="timeline-item flex items-center mb-24 w-full relative">
+          <div class="timeline-circle absolute left-1/2 top-0 transform -translate-x-1/2 w-6 h-6 bg-blue-500 rounded-full border-2 border-white"></div>
+          <div class="timeline-image w-1/2 flex justify-end pr-6" data-aos="fade-right">
+            <div class="bg-gray-700 p-4 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+              <img src="{% static 'images/asean.png' %}" nclick="openImageModal(this.src)"
+                    class="rounded-xl w-full h-48 object-contain bg-gray-800 cursor-pointer hover:opacity-90 transition">
+            </div>
+          </div>
+          <div class="timeline-content w-1/2 pl-6" data-aos="fade-left" data-aos-delay="300">
+            <div class="flex items-center space-x-4">
+              <h4 class="timeline-title text-xl font-semibold">AI Ready ASEAN</h4>
+              <span class="timeline-date text-gray-400 text-sm">September 2025</span>
+            </div>
+            <p class="timeline-desc mt-2">Engagement in AI awareness and readiness program across ASEAN countries.</p>
+          </div>
+        </div>
+
+        <!-- Devfest Manila -->
+        <div class="timeline-item flex items-center w-full relative">
+          <div class="timeline-circle absolute left-1/2 top-0 transform -translate-x-1/2 w-6 h-6 bg-blue-500 rounded-full border-2 border-white"></div>
+          <div class="timeline-image w-1/2 flex justify-end pr-6" data-aos="fade-right">
+            <div class="bg-gray-700 p-4 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+              <img src="{% static 'images/devfest.png' %}" nclick="openImageModal(this.src)"
+                    class="rounded-xl w-full h-48 object-contain bg-gray-800 cursor-pointer hover:opacity-90 transition">
+            </div>
+          </div>
+          <div class="timeline-content w-1/2 pl-6" data-aos="fade-left" data-aos-delay="400">
+            <div class="flex items-center space-x-4">
+              <h4 class="timeline-title text-xl font-semibold">Devfest Manila 2025</h4>
+              <span class="timeline-date text-gray-400 text-sm">November 2025</span>
+            </div>
+            <p class="timeline-desc mt-2">Participation in a tech festival highlighting latest technologies, coding, and networking opportunities.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE MODAL -->
+<div id="imageModal" class="hidden fixed inset-0 bg-black/80 z-[999] flex items-center justify-center">
+  <img id="modalImage" class="max-w-[95vw] max-h-[95vh] rounded-2xl shadow-2xl">
+  <button onclick="closeImageModal()"
+          class="absolute top-6 right-6 text-white text-3xl font-bold hover:scale-110 transition">
+    ✕
+  </button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- PROJECTS -->
+<section id="projects" class="relative py-24 max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-white mb-12 text-center" data-aos="fade-right">
+        Projects
+    </h2>
+
+    <!-- LEFT BUTTON -->
+    <button onclick="slideProjects(-1)"
+        class="absolute -left-14 top-1/2 -translate-y-1/2
+               bg-white/60 border border-gray-300
+               text-gray-800 w-14 h-14 rounded-full
+               flex items-center justify-center
+               shadow-lg hover:bg-white/80 transition z-50">
+        <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="Left" class="w-7 h-7">
+    </button>
+
+    <!-- RIGHT BUTTON -->
+    <button onclick="slideProjects(1)"
+        class="absolute -right-14 top-1/2 -translate-y-1/2
+               bg-white/60 border border-gray-300
+               text-gray-800 w-14 h-14 rounded-full
+               flex items-center justify-center
+               shadow-lg hover:bg-white/80 transition z-50">
+        <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="Right" class="w-7 h-7">
+    </button>
+
+    <!-- SLIDER -->
+    <div class="relative overflow-hidden px-10">
+        <div id="projectsSlider"
+             class="flex gap-14 transition-transform duration-500">
+
+            <!-- PROJECT 1 -->
+            <div class="min-w-[350px] p-6 flex flex-col text-center
+                        bg-gray-800/50 border border-blue-500/60
+                        rounded-2xl backdrop-blur-sm shadow-lg
+                        hover:scale-105 transition animate-softFloat">
+                <img src="{% static 'images/project1.jpg' %}"
+                     class="w-full h-40 object-cover rounded-xl shadow-md">
+                <h3 class="text-xl font-bold text-white mt-4">Thesis Project</h3>
+                <p class="text-gray-200 text-sm">Energy Management System</p>
+                <p class="text-gray-400 text-sm">Real-time monitoring with alerts.</p>
+
+                <!-- UX ENHANCED BUTTONS -->
+                <div class="flex gap-4 mt-auto pt-5 justify-center">
+                        <button  onclick="openProjectDetail(0)"
+                            class="relative px-6 py-3 rounded-full text-white font-bold
+                                bg-blue-500/60 border border-blue-400
+                                hover:bg-blue-500/80 hover:shadow-lg
+                                transition duration-300 flex items-center gap-3">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828419.png" 
+                                alt="View" class="w-6 h-6">
+                            View
+                        </button>
+
+                        <a href="https://drive.google.com/drive/folders/1NnP1ETl5nxYVuzhnG-yXjbyvtDVIWzAk?usp=drive_link"
+                        class="relative px-6 py-3 rounded-full text-white font-bold
+                                bg-gray-700/80 border border-gray-500
+                                hover:bg-gray-700/100 hover:shadow-xl
+                                transition duration-300 flex items-center gap-3">
+                            <img src="https://img.icons8.com/?size=100&id=0umfE6N5VaVA&format=png&color=000000" 
+                                alt="GitHub" class="w-6 h-6">
+                            Source
+                        </a>
+                </div>
+            </div>
+
+            <!-- PROJECT 2 -->
+            <div class="min-w-[350px] p-6 flex flex-col text-center
+                        bg-gray-800/50 border border-blue-500/60
+                        rounded-2xl backdrop-blur-sm shadow-lg
+                        hover:scale-105 transition animate-softFloat">
+                <img src="{% static 'images/project2.png' %}"
+                     class="w-full h-40 object-cover rounded-xl shadow-md">
+                <h3 class="text-xl font-bold text-white mt-4">Web System</h3>
+                <p class="text-gray-200 text-sm">Inventory Management</p>
+                <p class="text-gray-400 text-sm">Stock & sales tracking.</p>
+
+                <!-- UX ENHANCED BUTTONS -->
+                <div class="flex gap-4 mt-auto pt-5 justify-center">
+                      <button  onclick="openProjectDetail(1)"
+                            class="relative px-6 py-3 rounded-full text-white font-bold
+                                bg-blue-500/60 border border-blue-400
+                                hover:bg-blue-500/80 hover:shadow-lg
+                                transition duration-300 flex items-center gap-3">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828419.png" 
+                                alt="View" class="w-6 h-6">
+                            View
+                        </button>
+
+                    <a href="https://github.com/lexusoxford1/inventory-system/tree/e0e886cb44cc69e63f5eca6da50f13f806d1c5f7/InventorySystem_PHP-20260207T161342Z-1-001/InventorySystem_PHP"
+                       class="relative px-6 py-3 rounded-full text-white font-bold
+                              bg-gray-700/80 border border-gray-500
+                              hover:bg-gray-700/100 hover:shadow-xl
+                              transition duration-300 flex items-center gap-3">
+                        <img src="https://img.icons8.com/?size=100&id=0umfE6N5VaVA&format=png&color=000000" 
+                             alt="GitHub" class="w-6 h-6">
+                        Source
+                    </a>
+                </div>
+            </div>
+
+            <!-- PROJECT 3 -->
+            <div class="min-w-[350px] p-6 flex flex-col text-center
+                        bg-gray-800/50 border border-blue-500/60
+                        rounded-2xl backdrop-blur-sm shadow-lg
+                        hover:scale-105 transition animate-softFloat">
+                <img src="{% static 'images/project3.png' %}"
+                     class="w-full h-40 object-cover rounded-xl shadow-md">
+                <h3 class="text-xl font-bold text-white mt-4">Mobile App</h3>
+                <p class="text-gray-200 text-sm">NutriGo</p>
+                <p class="text-gray-400 text-sm">Nutrition & calorie tracker.</p>
+
+                <!-- UX ENHANCED BUTTONS -->
+                <div class="flex gap-4 mt-auto pt-5 justify-center">
+                        <button  onclick="openProjectDetail(2)"
+                            class="relative px-6 py-3 rounded-full text-white font-bold
+                                bg-blue-500/60 border border-blue-400
+                                hover:bg-blue-500/80 hover:shadow-lg
+                                transition duration-300 flex items-center gap-3">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828419.png" 
+                                alt="View" class="w-6 h-6">
+                            View
+                        </button>
+
+                    <a href="https://github.com/lexusoxford1/nutrigo-diatery-system/tree/2e0d513e2aefb8d63f5d45fd5a9599f4f3f84849/NutriGo-AdminUser-WebBase-20260207T154136Z-1-001/NutriGo-AdminUser-WebBase"
+                       class="relative px-6 py-3 rounded-full text-white font-bold
+                              bg-gray-700/80 border border-gray-500
+                              hover:bg-gray-700/100 hover:shadow-xl
+                              transition duration-300 flex items-center gap-3">
+                        <img src="https://img.icons8.com/?size=100&id=0umfE6N5VaVA&format=png&color=000000" 
+                             alt="GitHub" class="w-6 h-6">
+                        Source
+                    </a>
+                </div>
+            </div>
+
+            <!-- PROJECT 4 -->
+            <div class="min-w-[350px] p-6 flex flex-col text-center
+                        bg-gray-800/50 border border-blue-500/60
+                        rounded-2xl backdrop-blur-sm shadow-lg
+                        hover:scale-105 transition animate-softFloat">
+                <img src="{% static 'images/project4.png' %}"
+                     class="w-full h-40 object-cover rounded-xl shadow-md">
+                <h3 class="text-xl font-bold text-white mt-4">Desktop System</h3>
+                <p class="text-gray-200 text-sm">Employee Monitoring</p>
+                <p class="text-gray-400 text-sm">Attendance & activity logs.</p>
+
+                <!-- UX ENHANCED BUTTONS -->
+                <div class="flex gap-4 mt-auto pt-5 justify-center">
+                   <button  onclick="openProjectDetail(3)"
+                            class="relative px-6 py-3 rounded-full text-white font-bold
+                                bg-blue-500/60 border border-blue-400
+                                hover:bg-blue-500/80 hover:shadow-lg
+                                transition duration-300 flex items-center gap-3">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828419.png" 
+                                alt="View" class="w-6 h-6">
+                            View
+                    </button>
+
+                    <a href="https://github.com/lexusoxford1/employee-attendane-system/tree/ac6821b072685d1be2fb1c558198f9f146b650a4/Attendance%20System-20260205T102527Z-1-001/Attendance%20System"
+                       class="relative px-6 py-3 rounded-full text-white font-bold
+                              bg-gray-700/80 border border-gray-500
+                              hover:bg-gray-700/100 hover:shadow-xl
+                              transition duration-300 flex items-center gap-3">
+                        <img src="https://img.icons8.com/?size=100&id=0umfE6N5VaVA&format=png&color=000000" 
+                             alt="GitHub" class="w-6 h-6">
+                        Source
+                    </a>
+                </div>
+            </div>
+
+            <!-- PROJECT 5 (Coming Soon) -->
+            <div class="min-w-[350px] p-6 flex flex-col text-center
+                        bg-gray-800/50 border border-blue-500/60
+                        rounded-2xl backdrop-blur-sm shadow-lg
+                        animate-softFloat">
+                <img src="https://i.pinimg.com/1200x/fa/ec/8c/faec8ce6f83bfba8b9d11856cbf0ce60.jpg"
+                     class="w-full h-40 object-cover rounded-xl shadow-md" alt="Coming Soon">
+                <h3 class="text-xl font-bold text-white mt-4">Coming Soon</h3>
+                <p class="text-gray-200 text-sm">Project 5</p>
+                <p class="text-gray-400 text-sm">Content not ready yet.</p>
+
+                <!-- UX ENHANCED BUTTONS 
+                <div class="flex gap-4 mt-auto pt-5 justify-center">
+                    <button  onclick="openProjectDetail(4)"
+                        class="relative px-6 py-3 rounded-full text-white font-bold
+                                bg-blue-500/60 border border-blue-400
+                                hover:bg-blue-500/80 hover:shadow-lg
+                                transition duration-300 flex items-center gap-3">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828419.png" 
+                            alt="View" class="w-6 h-6">
+                            View
+                    </button>
+
+                    <a href="#"
+                       class="relative px-6 py-3 rounded-full text-white font-bold
+                              bg-gray-700/80 border border-gray-500
+                              hover:bg-gray-700/100 hover:shadow-xl
+                              transition duration-300 flex items-center gap-3">
+                        <img src="https://img.icons8.com/?size=100&id=0umfE6N5VaVA&format=png&color=000000" 
+                             alt="GitHub" class="w-6 h-6">
+                        Source
+                    </a>
+                </div> -->
+            </div>
+            
+        </div>
+    </div>
+
+   
+
+
+        <!-- ====== PROJECT DETAIL MODAL ====== -->
+        <div id="projectDetailOverlay" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50 px-4">
+        <div class="bg-white rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative" data-aos="zoom-in">
+
+            <!-- HEADER -->
+            <div class="border-b px-8 py-6">
+            <h2 id="projectDetailTitle" class="text-3xl font-extrabold text-gray-900 text-center"></h2>
+            <p id="projectDetailDesc" class="mt-3 text-gray-600 text-center max-w-3xl mx-auto"></p>
+            </div>
+
+            <!-- CONTENT GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 px-8 py-8">
+            
+            <!-- LEFT: IMAGES -->
+            <div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Project Preview</h3>
+                <div id="projectDetailImages" class="grid grid-cols-2 gap-4"></div>
+            </div>
+
+            <!-- RIGHT: DETAILS -->
+            <div class="space-y-6">
+                <!-- Overview -->
+                <div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Overview</h3>
+                <p id="projectDetailOverview" class="text-gray-600 leading-relaxed text-left"></p>
+                </div>
+
+                <!-- Key Features -->
+                <div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">Key Features</h3>
+                <ul id="projectDetailFeatures" class="space-y-2 list-disc list-inside text-gray-600 text-left"></ul>
+                </div>
+
+                <!-- Programming Languages -->
+                <div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">Programming Languages Used</h3>
+                <div id="projectDetailLanguages" class="flex flex-wrap gap-3"></div>
+                </div>
+
+                <!-- Environments & Tools -->
+                <div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">Environments & Tools Used</h3>
+                <div id="projectDetailTools" class="flex flex-wrap gap-3"></div>
+                </div>
+            </div>
+            </div>
+
+            <!-- PROJECT JOURNEY: HIWALAY SA GRID, UNDER CONTENT -->
+            <div class="px-8 py-6 mt-6 bg-pink-50 rounded-xl">
+            <h3 class="text-xl font-semibold text-pink-700 mb-3">Project Journey & Experience</h3>
+            <p id="projectDetailJourney" class="text-gray-700 leading-relaxed text-left"></p>
+            </div>
+
+
+        </div>
+        </div>
+
+
+
+    
+
+ 
+</section>
+
+
+
+
+
+
+          
+                    
+                    
+
+
+
+
+
+
+
+
+
+            <!-- CONTACT -->
+    <section id="contact" class="relative py-24 text-white">
+
+                <!-- local dark overlay (same feel as before) -->
+                <div class="absolute inset-0 bg-black/60"></div>
+
+                <!-- CONTENT -->
+                <div class="relative z-10 max-w-4xl mx-auto px-6">
+
+                    <h2 class="section-title text-4xl font-bold mb-8 text-center" data-aos="fade-right">
+                        Contact Me
+                    </h2>
+
+                            <!-- FORM CARD -->
+                            <form method="POST" action="{% url 'contact' %}"
+                                class="bg-black/70 backdrop-blur-xl p-8 rounded-2xl shadow-2xl space-y-6"
+                                data-aos="fade-up">
+                                {% csrf_token %}
+
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <input type="text" name="name" placeholder="Your Name"
+                                        class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white" required>
+
+                                    <input type="email" name="email" placeholder="Your Email"
+                                        class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white" required>
+                                </div>
+
+                                <textarea name="message" rows="5" placeholder="Your Message"
+                                        class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white"></textarea>
+
+                                <button class="w-full bg-gradient-to-r from-blue-500 to-violet-500
+                                            hover:from-blue-600 hover:to-violet-600
+                                            text-white px-6 py-3 rounded-full font-semibold transition shadow-lg">
+                                    Submit
+                                </button>
+                            </form>
+
+                            <!-- INFO CARDS -->
+                            <div class="mt-12 grid md:grid-cols-4 gap-6 text-center">
+
+                                <!-- EMAIL -->
+                                <div class="bg-black/70 backdrop-blur-lg p-6 rounded-2xl shadow-lg flex flex-col items-center hover:scale-105 transition transform">
+                                    <div class="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-violet-500 flex items-center justify-center mb-4">
+                                        <!-- icon: envelope -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M2 5a2 2 0 012-2h16a2 2 0 012 2v14a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm2 1l8 5 8-5H4z"/>
+        </svg>
+
+                                    </div>
+                                    <h4 class="font-bold text-blue-400 mb-2">Email</h4>
+                                    <p>keithpelono111@gmail.com</p>
+                                </div>
+
+                                <!-- PHONE -->
+                                <div class="bg-black/70 backdrop-blur-lg p-6 rounded-2xl shadow-lg flex flex-col items-center hover:scale-105 transition transform">
+                                    <div class="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-violet-500 flex items-center justify-center mb-4">
+                                        <!-- icon: phone -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V21a1 1 0 01-1 1C10.85 22 2 13.15 2 2a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.59a1 1 0 01-.24 1.01l-2.2 2.19z"/>
+        </svg>
+                                    </div>
+                                    <h4 class="font-bold text-blue-400 mb-2">Number</h4>
+                                    <p>+639669916433</p>
+                                </div>
+
+                                <!-- HOME -->
+                                <div class="bg-black/70 backdrop-blur-lg p-6 rounded-2xl shadow-lg flex flex-col items-center hover:scale-105 transition transform">
+                                    <div class="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-violet-500 flex items-center justify-center mb-4">
+                                        <!-- icon: home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M3 12l9-9 9 9v9a2 2 0 01-2 2h-4v-6H9v6H5a2 2 0 01-2-2v-9z" />
+                                        </svg>
+                                    </div>
+                                    <h4 class="font-bold text-blue-400 mb-2">Home</h4>
+                                    <p>Santa Rosa City of Laguna</p>
+                                </div>
+
+                                <!-- SCHOOL -->
+                                <div class="bg-black/70 backdrop-blur-lg p-6 rounded-2xl shadow-lg flex flex-col items-center hover:scale-105 transition transform">
+                                    <div class="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-violet-500 flex items-center justify-center mb-4">
+                                        <!-- icon: academic cap -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 14l9-5-9-5-9 5 9 5z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 14l6.16-3.422A12.083 12.083 0 0112 21.5a12.083 12.083 0 01-6.16-10.922L12 14z" />
+                                        </svg>
+                                    </div>
+                                    <h4 class="font-bold text-blue-400 mb-2">School</h4>
+                                    <p>STI College Santa Rosa</p>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </section>
+
+                            </div>
+            </section>
+
+
+
+
+
+    </div> <!-- END mainContent -->
+
+<!--aos-->
+<script>
+
+        AOS.init({
+        duration: 1000,
+        easing: 'ease-in-out',
+        once: false,   // para gumana ulit pag scroll up
+        mirror: true   // para smooth pabalik
+        });
+         </script>  
+
+
+
+<!--slider / carousel-->
+<script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const slider = document.getElementById("projectsSlider");
+            if (!slider) return;
+
+            let currentTranslate = 0;
+
+            function getCardWidth() {
+                const style = getComputedStyle(slider.children[0]);
+                const width = slider.children[0].offsetWidth;
+                const marginRight = parseInt(style.marginRight);
+                return width + marginRight;
+            }
+
+            function getMaxScroll() {
+                const containerWidth = slider.parentElement.offsetWidth;
+                return Math.max(slider.scrollWidth - containerWidth, 0);
+            }
+
+            window.slideProjects = function(direction) {
+                const cardWidth = getCardWidth();
+                const maxScroll = getMaxScroll();
+
+                const remainingScroll = maxScroll - currentTranslate;
+
+                if (direction > 0) {
+                    // Scroll right
+                    if (remainingScroll <= cardWidth) {
+                        currentTranslate = maxScroll; // last card fully visible
+                    } else {
+                        currentTranslate += cardWidth;
+                    }
+                } else if (direction < 0) {
+                    // Scroll left
+                    if (currentTranslate <= cardWidth) {
+                        currentTranslate = 0;
+                    } else {
+                        currentTranslate -= cardWidth;
+                    }
+                }
+
+                slider.style.transform = `translateX(-${currentTranslate}px)`;
+            };
+
+            window.addEventListener("resize", () => {
+                const maxScroll = getMaxScroll();
+                if (currentTranslate > maxScroll) currentTranslate = maxScroll;
+                slider.style.transform = `translateX(-${currentTranslate}px)`;
+            });
+        });
+
+    </script>
+
+
+<!--category function-->
+<script>
+    const buttons = document.querySelectorAll('.category-btn');
+    const cards = document.querySelectorAll('.skill-card');
+
+    buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const category = btn.dataset.category;
+        cards.forEach(card => {
+        if(category === 'All' || card.dataset.category === category){
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
+        }
+        });
+    });
+    });
+    </script>
+
+<!--download Resume-->
+<script>
+  document.getElementById("hireForm").addEventListener("submit", function(e) {
+    // let the form submit normally
+    setTimeout(() => {
+        // auto-download resume after submission
+        const link = document.createElement("a");
+        link.href = "/media/resumes/KeithPelonio_Resume.pdf";
+        link.download = "KeithPelonio_Resume.pdf";
+        link.click();
+          }, 500); // slight delay to ensure redirect doesn't block download
+      });
+
+    </script>
+
+
+
+
+
+
+
+{% endblock %}
