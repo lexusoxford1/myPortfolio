@@ -5,6 +5,9 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from .models import Skill, SoftSkill
 from django.core.mail import send_mail
+from django.http import JsonResponse
+
+from django.db.models import Count, DateField
 
 from .models import (
     Profile,
@@ -125,33 +128,93 @@ def project_detail(request, pk):
         'project': project
     })
 
+# New API endpoint for all projects
+def get_projects(request):
+    projects = Project.objects.all().order_by('-created_at')
+    data = []
+    for p in projects:
+        data.append({
+            "title": p.title,
+            "subtitle": p.subtitle,
+            "description": p.description,
+            "image": p.image.url,
+            "source_url": p.source_url,
+            "view_url": p.view_url,
+            "overview": p.overview,
+            "features": p.features,
+            "languages": p.languages,
+            "tools": p.tools,
+            "journey": p.journey,
+        })
+    return JsonResponse(data, safe=False)
+
+def contact_analytics(request):
+    submissions = (
+        ContactMessage.objects
+        .annotate(date=Cast('created_at', DateField()))
+        .values('date')
+        .annotate(count=Count('id'))
+        .order_by('-date')
+    )
+
+    return render(request, 'portfolio/contact_analytics.html', {
+        'submissions': submissions
+    })
 
 # CONTACT FORM
 def contact(request):
     if request.method == 'POST':
-        name=request.POST.get('name'),
-        email=request.POST.get('email'),
-        message=request.POST.get('message')
+        # Remove extra comma
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        # Save to database
         ContactMessage.objects.create(
             name=name,
             email=email,
             message=message 
         )
 
+        # Send email to admin
         full_message = f"Message from {name} ({email}):\n\n{message}"
-
         send_mail(
             subject=f"New Contact Form Submission from {name}",
             message=full_message,
             from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[settings.CONTACT_EMAIL],  
+            recipient_list=[settings.CONTACT_EMAIL],
+        )
+
+       # Auto-reply content
+        auto_reply_subject = "Thank You for Reaching Out"
+        auto_reply_message = f"""
+        Hi {name},
+
+        Thank you for taking the time to contact me. I sincerely appreciate your message and the potential opportunity you may be offering.
+
+        I am actively seeking professional opportunities where I can contribute my skills in web development, back-end programming, and IT support. I will review your message carefully and get back to you as soon as possible.
+
+        Once again, thank you for reaching out, and I look forward to the possibility of collaborating in the future.
+
+        Best regards,
+        Keith Pelonio
+        """
+        send_mail(
+            subject=auto_reply_subject,
+            message=auto_reply_message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[email],
         )
 
 
-        messages.success(request, "Message sent successfully!")
+        messages.success(request, "Message sent successfully! A confirmation email has been sent to you.")
         return redirect('home')
 
     return render(request, 'portfolio/contact.html')
+
+
+
+
 
 
 # HIRE ME FORM

@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Profile(models.Model):
     full_name = models.CharField(max_length=100)
     title = models.CharField(max_length=150)
@@ -59,6 +60,16 @@ class ContactMessage(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
 
+class ContactSubmission(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)  # timestamp ng submission
+
+    def __str__(self):
+        return f"{self.name} - {self.created_at.strftime('%Y-%m-%d')}"
+
+
 class HireRequest(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -68,3 +79,24 @@ class HireRequest(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.email})"
+
+
+
+
+class Project(models.Model):
+    title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=200, blank=True)
+    description = models.TextField(blank=True)
+    image = models.ImageField(upload_to='projects/', blank=True)
+    source_url = models.URLField(blank=True)
+    view_url = models.URLField(blank=True)
+    # Para sa modal
+    overview = models.TextField(blank=True)
+    features = models.JSONField(default=list, blank=True)   # list of features
+    languages = models.JSONField(default=list, blank=True)  # list of languages
+    tools = models.JSONField(default=list, blank=True)      # list of tools
+    journey = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

@@ -37,8 +37,10 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),                       
-    path('project/<int:pk>/', views.project_detail, name='project_detail'),
+    path('projects/<int:pk>/', views.project_detail, name='project-detail'),  # existing
+    path('api/projects/', views.get_projects, name='api-projects'),           # bagong API
     path('contact/', views.contact, name='contact'),
+    path('contact/analytics/', views.contact_analytics, name='contact_analytics'),
     path('hire/', views.hire_me_submit, name='hire_me_submit'), 
     
 ]
